@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #FFD93D; /* warm yellow */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#temp {
+    font-size: 120px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+#emoji {
+    font-size: 80px;
+    margin-top: -20px;
+}
+
+#date {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #444;
+}
