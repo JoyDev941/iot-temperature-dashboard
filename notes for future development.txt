@@ -1,0 +1,9 @@
+1 - clean up feather file.
+2 - install and contenarize with docker.
+3 - add humidity reading to front end.
+4 - comment on code.
+5 - clean up visualization of data.
+6 - complete the emulate script
+7 - fix NGINX redirect
+8 - transfer the database data send to database.py
+10 - add additional idea, like news agent
