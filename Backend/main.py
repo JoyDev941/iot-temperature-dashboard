@@ -4,8 +4,18 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 from datetime import datetime
+import psycopg2
 import json
 import os
+
+con = psycopg2.connect(
+    host = "localhost",
+    database="db_name",
+    user="postgres",
+    password="pas"
+)
+
+cur = con.cursor()
 
 app = FastAPI()
 
@@ -24,6 +34,7 @@ def set_message(msg: str):
     current_temperature = msg
     return {"stored": current_temperature}
 
+#send temperature reading to front end JS script
 @app.get("/temperature")
 def pass_temperature():
     if (current_temperature == ""):
@@ -31,3 +42,6 @@ def pass_temperature():
         return {"temperature" : current_temperature}
     else:
         return {"temperature" : current_temperature}
+    
+def store_data(x):
+    #When data is received store in database
