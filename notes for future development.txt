@@ -7,3 +7,4 @@
 7 - fix NGINX redirect
 8 - transfer the database data send to database.py
 10 - add additional idea, like news agent
+11 - prometheus and garfana
