@@ -40,23 +40,30 @@ def set_message(temp: str, hum: str):
     current_temperature = temp
 
     global current_humidity
-    current_humidity = hum
+    current_humidity = hum 
 
     try:
         con = get_connection()
         cur = con.cursor()
 
+        print("hit")
+
         cur.execute(
-            "INSERT INTO sensor_data (temperature, humidity) VALUES (%s, %s);",
-            (current_temperature, current_humidity)
+            "INSERT INTO temperature_data (temperature, humidity) VALUES (%s, %s);",
+            (current_temperature,current_humidity)
         )
 
         con.commit()
         cur.close()
         con.close()
+        
+    except Execption as e:
+        print("ERROR:", e)  # logs to terminal
 
-    except Exception as e:
-        return {"error": str(e)}
+        return {
+            "status": "error",
+            "message": str(e)
+        }
 
     return {"stored": current_temperature, "humidity": current_humidity}
 
